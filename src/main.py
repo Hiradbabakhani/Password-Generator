@@ -33,13 +33,13 @@ class PinGenerator(PasswordGeneratore):
 
         :return: A random PIN as string.
         """
-        return "".join([random.choice(string.digits) for _ in range(self.lenght)])
+        return "".join([random.choice(string.digits) for _ in range(self.length)])
 
 class RandomPassword(PasswordGeneratore):
     """
     Class for generating a random password with specified lenght and character types.
     """
-    def __init__(self, lenght: int = 8, include_numbers: bool = True, include_symbols: bool = True):
+    def __init__(self, length: int = 8, include_numbers: bool = True, include_symbols: bool = True):
         """
         Initilize the RandomPassword with given Parameters for password complexity.
 
@@ -47,7 +47,7 @@ class RandomPassword(PasswordGeneratore):
         :param include_numbers: Whether to include numbers in the password (defult is True).
         :param include_symbols: Whether to include symbols in the password (defult is True).
         """
-        self.lenght = lenght
+        self.length = length
         self.characters = string.ascii_letters
         if include_numbers:
             self.characters += string.digits
@@ -60,7 +60,7 @@ class RandomPassword(PasswordGeneratore):
 
         :return: a random passwprd as a string.
         """
-        return "".join([random.choice(self.characters) for _ in range(self.lenght)])
+        return "".join([random.choice(self.characters) for _ in range(self.length)])
 
 class Memorablepassword(PasswordGeneratore):
     """
@@ -68,7 +68,7 @@ class Memorablepassword(PasswordGeneratore):
     """
     def __init__(
             self,
-            seprator:str = "-",
+            separator:str = "-",
             number_of_words: int = 4,
             capitalize: bool = False,
             vocabulary: list = None
@@ -86,7 +86,7 @@ class Memorablepassword(PasswordGeneratore):
 
         self.vocabulary = vocabulary
         self.num_of_words = number_of_words
-        self.seprator = seprator
+        self.separator = separator
         self.capitalize = capitalize
 
     def generate(self):
