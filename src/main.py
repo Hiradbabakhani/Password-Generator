@@ -100,4 +100,19 @@ class Memorablepassword(PasswordGeneratore):
         if self.capitalize:
             password_words = [words.upper() if random.choice[(True, False)]else words.lower() for words in password_words]
 
-        return self.seprator.join(password_words)
+        return self.separator.join(password_words)
+
+def main():
+    print("Testing PinCodeGenerator:")
+    test_pincode_generator()
+
+
+def test_pincode_generator():
+    pin_gen = PinGenerator(length=4)
+    pin = pin_gen.generate()
+    print(pin)
+    assert len(pin) == 4
+    assert all(char in string.digits for char in pin)
+
+if __name__ == "__main__":
+    main()
