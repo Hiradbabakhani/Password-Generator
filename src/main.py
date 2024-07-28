@@ -69,7 +69,7 @@ class Memorablepassword(PasswordGeneratore):
     def __init__(
             self,
             separator:str = "-",
-            number_of_words: int = 4,
+            number_of_words: int = 8,
             capitalize: bool = False,
             vocabulary: list = None
     ):
@@ -98,7 +98,7 @@ class Memorablepassword(PasswordGeneratore):
         password_words = [random.choice(self.vocabulary) for _ in range(self.num_of_words)]
 
         if self.capitalize:
-            password_words = [words.upper() if random.choice[(True, False)]else words.lower() for words in password_words]
+            password_words = [words.upper() if random.choice((True, False))else words.lower() for words in password_words]
 
         return self.separator.join(password_words)
 
